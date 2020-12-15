@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: efk
+  namespace: argocd
+spec:
+  source:
+    path: efk
+    repoURL: https://github.com/undostres321/k8s_argocd.git
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: kube-system
+  project: default
